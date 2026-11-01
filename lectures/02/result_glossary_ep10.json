@@ -1,0 +1,57 @@
+{
+  "config": {
+    "base_model": "Qwen/Qwen3.5-0.8B",
+    "revision": "2fc06364715b967f1860aea9cf38778875588b17",
+    "seed": 42,
+    "num_train_epochs": 10,
+    "warmup_steps": 6,
+    "lr": 0.0002,
+    "lora_r": 16,
+    "lora_alpha": 32,
+    "max_seq_len": 512,
+    "max_new_tokens": 200,
+    "gen": {
+      "do_sample": false
+    },
+    "dataset": "glossary_sft.jsonl（scripts/make_sft_dataset.py）"
+  },
+  "versions": {
+    "transformers": "5.18.0",
+    "peft": "0.21.1",
+    "trl": "1.14.2",
+    "torch": "2.11.0+cu130"
+  },
+  "method": "LoRA（量子化なし）・用語集 SFT",
+  "train_size": 116,
+  "train_seconds": 421,
+  "final_loss": 0.08326390981674195,
+  "before": {
+    "label": "before",
+    "n": 24,
+    "acc": 0.08333333333333333,
+    "seconds": 261.7,
+    "acc_seen": 0.125,
+    "acc_paraphrase": 0.1,
+    "acc_unknown": 0.0
+  },
+  "after": {
+    "label": "after",
+    "n": 24,
+    "acc": 0.5416666666666666,
+    "seconds": 80.6,
+    "acc_seen": 1.0,
+    "acc_paraphrase": 0.5,
+    "acc_unknown": 0.0
+  },
+  "search": {
+    "label": "search",
+    "n": 24,
+    "acc": 0.875,
+    "seconds": 0.0,
+    "acc_seen": 1.0,
+    "acc_paraphrase": 0.8,
+    "acc_unknown": 0.8333333333333334
+  },
+  "regressed": [],
+  "executed_training_myself": true
+}
